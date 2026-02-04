@@ -3,6 +3,38 @@ import { Button } from "@/components/ui/button";
 
 const laws = [
   {
+    title: "Navtej Singh Johar v. Union of India",
+    jurisdiction: "India",
+    type: "Supreme Court Decision",
+    summary: "Historic judgment that decriminalized homosexuality by striking down Section 377 of the Indian Penal Code, ruling it unconstitutional insofar as it criminalized consensual sexual conduct between adults.",
+    impact: "Ended 157 years of criminalization of LGBTQ+ individuals in India, recognizing their fundamental rights to equality and dignity.",
+    year: "2018"
+  },
+  {
+    title: "NALSA v. Union of India",
+    jurisdiction: "India",
+    type: "Supreme Court Decision",
+    summary: "Landmark judgment recognizing transgender persons as a 'third gender' and affirming their constitutional rights including the right to self-identification of gender.",
+    impact: "Directed governments to provide reservations in education and employment, and ensure access to healthcare for transgender individuals.",
+    year: "2014"
+  },
+  {
+    title: "Supriyo v. Union of India",
+    jurisdiction: "India",
+    type: "Supreme Court Decision",
+    summary: "Petitions seeking legal recognition of same-sex marriages under the Special Marriage Act. While marriage equality wasn't granted, the court affirmed LGBTQ+ rights to cohabitation and non-discrimination.",
+    impact: "Directed government to form a committee to address discrimination and ensure equal rights for queer couples in matters like ration cards and medical decisions.",
+    year: "2023"
+  },
+  {
+    title: "Transgender Persons (Protection of Rights) Act",
+    jurisdiction: "India",
+    type: "Legislation",
+    summary: "An Act to provide for protection of rights of transgender persons and their welfare, including provisions for identity certificates and prohibition of discrimination.",
+    impact: "First comprehensive legislation for transgender rights in India, though criticized by activists for certain provisions.",
+    year: "2019"
+  },
+  {
     title: "Bostock v. Clayton County (2020)",
     jurisdiction: "United States",
     type: "Supreme Court Decision",
@@ -11,12 +43,12 @@ const laws = [
     year: "2020"
   },
   {
-    title: "Marriage (Same Sex Couples) Act 2013",
-    jurisdiction: "United Kingdom",
-    type: "Legislation",
-    summary: "Legalized same-sex marriage in England and Wales, allowing same-sex couples to marry in civil ceremonies and religious settings where permitted.",
-    impact: "Extended full marriage rights and protections to same-sex couples.",
-    year: "2013"
+    title: "Obergefell v. Hodges (2015)",
+    jurisdiction: "United States",
+    type: "Supreme Court Decision",
+    summary: "The Supreme Court ruled that the fundamental right to marry is guaranteed to same-sex couples under the Constitution.",
+    impact: "Legalized same-sex marriage across all 50 states.",
+    year: "2015"
   },
   {
     title: "Yogyakarta Principles",
@@ -25,22 +57,6 @@ const laws = [
     summary: "A set of principles on the application of international human rights law in relation to sexual orientation and gender identity.",
     impact: "Influential framework used by courts and human rights bodies worldwide.",
     year: "2006"
-  },
-  {
-    title: "Gender Recognition Act 2004",
-    jurisdiction: "United Kingdom",
-    type: "Legislation",
-    summary: "Allows transgender people to apply for a Gender Recognition Certificate, enabling them to obtain a new birth certificate reflecting their acquired gender.",
-    impact: "First comprehensive legal recognition of gender transition in the UK.",
-    year: "2004"
-  },
-  {
-    title: "Obergefell v. Hodges (2015)",
-    jurisdiction: "United States",
-    type: "Supreme Court Decision",
-    summary: "The Supreme Court ruled that the fundamental right to marry is guaranteed to same-sex couples under the Constitution.",
-    impact: "Legalized same-sex marriage across all 50 states.",
-    year: "2015"
   },
   {
     title: "Equality Act 2010",

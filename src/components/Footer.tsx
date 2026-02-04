@@ -1,4 +1,4 @@
-import { Scale, Heart, Mail, Twitter, Github } from "lucide-react";
+import { Scale, Heart, Mail, Phone, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -44,23 +44,24 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Contact */}
+          {/* Contact - Marthala Purna */}
           <div>
             <h4 className="font-display font-semibold text-foreground mb-4">Connect</h4>
-            <div className="flex items-center gap-4 mb-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-pride-purple/20 transition-colors">
-                <Twitter className="w-5 h-5 text-muted-foreground" />
+            <div className="space-y-3 mb-4">
+              <p className="text-sm font-medium text-foreground">Marthala Purna</p>
+              <a href="mailto:purnamarthala09@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-pride-purple transition-colors">
+                <Mail className="w-4 h-4" />
+                purnamarthala09@gmail.com
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-pride-purple/20 transition-colors">
-                <Github className="w-5 h-5 text-muted-foreground" />
+              <a href="tel:+916302728567" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-pride-purple transition-colors">
+                <Phone className="w-4 h-4" />
+                +91 6302728567
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-pride-purple/20 transition-colors">
-                <Mail className="w-5 h-5 text-muted-foreground" />
+              <a href="https://instagram.com/hey.purnaaaa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-pride-pink transition-colors">
+                <Instagram className="w-4 h-4" />
+                @hey.purnaaaa
               </a>
             </div>
-            <p className="text-sm text-muted-foreground">
-              support@pridejustice.ai
-            </p>
           </div>
         </div>
         

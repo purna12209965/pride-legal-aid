@@ -77,10 +77,12 @@ const TerminologySection = () => {
               className="gradient-border overflow-hidden"
             >
               <button
+                type="button"
                 onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-muted/30 transition-colors"
+                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-muted/30 transition-colors cursor-pointer"
+                aria-expanded={expandedIndex === index}
               >
-                <div>
+                <div className="flex-1 min-w-0">
                   <span className="font-display text-lg font-semibold text-foreground">
                     {item.term}
                   </span>
@@ -88,15 +90,21 @@ const TerminologySection = () => {
                     — {item.full}
                   </span>
                 </div>
-                {expandedIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-pride-purple" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-muted-foreground" />
-                )}
+                <div className="ml-4 flex-shrink-0">
+                  {expandedIndex === index ? (
+                    <ChevronUp className="w-5 h-5 text-pride-purple" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                  )}
+                </div>
               </button>
               
-              {expandedIndex === index && (
-                <div className="px-6 pb-6 space-y-4 animate-in slide-in-from-top-2 duration-200">
+              <div 
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  expandedIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-6 pb-6 space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
                     {item.definition}
                   </p>
@@ -110,7 +118,7 @@ const TerminologySection = () => {
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

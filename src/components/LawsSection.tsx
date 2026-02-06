@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { ExternalLink, MapPin, Calendar, X, BookOpen, Scale, Users, ArrowRight } from "lucide-react";
+import { ExternalLink, MapPin, Calendar, BookOpen, Scale, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
-
+import { ScrollArea } from "@/components/ui/scroll-area";
 interface LawDetail {
   title: string;
   jurisdiction: string;
@@ -398,91 +399,96 @@ const LawsSection = () => {
       </div>
 
       {/* Detailed Law Modal */}
-      <Dialog open={!!selectedLaw} onOpenChange={() => setSelectedLaw(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-card border-border">
-          {selectedLaw && (
-            <>
-              <DialogHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs px-2 py-1 rounded-full bg-pride-purple/10 text-pride-purple">
-                    {selectedLaw.type}
-                  </span>
-                  <span className="text-xs px-2 py-1 rounded-full bg-pride-blue/10 text-pride-blue flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {selectedLaw.jurisdiction}
-                  </span>
-                  <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {selectedLaw.year}
-                  </span>
-                </div>
-                <DialogTitle className="font-display text-2xl md:text-3xl gradient-text">
-                  {selectedLaw.title}
-                </DialogTitle>
-              </DialogHeader>
-
-              <div className="space-y-6 mt-4">
-                {/* Full Explanation */}
-                <div className="space-y-3">
-                  <h4 className="font-display text-lg font-semibold flex items-center gap-2">
-                    <Scale className="w-5 h-5 text-pride-purple" />
-                    Full Explanation
-                  </h4>
-                  <div className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">
-                    {selectedLaw.fullExplanation}
+      <Dialog open={!!selectedLaw} onOpenChange={(open) => !open && setSelectedLaw(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] bg-card border-border p-0">
+          <ScrollArea className="max-h-[85vh] p-6">
+            {selectedLaw && (
+              <>
+                <DialogHeader className="mb-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-xs px-2 py-1 rounded-full bg-pride-purple/10 text-pride-purple">
+                      {selectedLaw.type}
+                    </span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-pride-blue/10 text-pride-blue flex items-center gap-1">
+                      <MapPin className="w-3 h-3" />
+                      {selectedLaw.jurisdiction}
+                    </span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      {selectedLaw.year}
+                    </span>
                   </div>
-                </div>
+                  <DialogTitle className="font-display text-2xl md:text-3xl gradient-text">
+                    {selectedLaw.title}
+                  </DialogTitle>
+                  <DialogDescription className="text-muted-foreground text-sm">
+                    Detailed legal information about this law and what it means for LGBTQ+ rights.
+                  </DialogDescription>
+                </DialogHeader>
 
-                {/* Key Points */}
-                <div className="p-4 rounded-xl bg-pride-purple/5 border border-pride-purple/20">
-                  <h4 className="font-display text-lg font-semibold flex items-center gap-2 mb-3">
-                    <BookOpen className="w-5 h-5 text-pride-purple" />
-                    Key Points to Remember
-                  </h4>
-                  <ul className="space-y-2">
-                    {selectedLaw.keyPoints.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <ArrowRight className="w-4 h-4 text-pride-pink mt-0.5 flex-shrink-0" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* What It Means For You */}
-                <div className="p-4 rounded-xl bg-pride-green/5 border border-pride-green/20">
-                  <h4 className="font-display text-lg font-semibold flex items-center gap-2 mb-3">
-                    <Users className="w-5 h-5 text-pride-green" />
-                    What This Means For You
-                  </h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {selectedLaw.whatItMeans}
-                  </p>
-                </div>
-
-                {/* Resources */}
-                {selectedLaw.resources && selectedLaw.resources.length > 0 && (
+                <div className="space-y-6 mt-4">
+                  {/* Full Explanation */}
                   <div className="space-y-3">
-                    <h4 className="font-display text-lg font-semibold">Official Resources</h4>
-                    <div className="flex flex-wrap gap-3">
-                      {selectedLaw.resources.map((resource, i) => (
-                        <a
-                          key={i}
-                          href={resource.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-pride-purple/10 border border-border hover:border-pride-purple/30 transition-colors text-sm"
-                        >
-                          <ExternalLink className="w-4 h-4 text-pride-purple" />
-                          {resource.name}
-                        </a>
-                      ))}
+                    <h4 className="font-display text-lg font-semibold flex items-center gap-2">
+                      <Scale className="w-5 h-5 text-pride-purple" />
+                      Full Explanation
+                    </h4>
+                    <div className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">
+                      {selectedLaw.fullExplanation}
                     </div>
                   </div>
-                )}
-              </div>
-            </>
-          )}
+
+                  {/* Key Points */}
+                  <div className="p-4 rounded-xl bg-pride-purple/5 border border-pride-purple/20">
+                    <h4 className="font-display text-lg font-semibold flex items-center gap-2 mb-3">
+                      <BookOpen className="w-5 h-5 text-pride-purple" />
+                      Key Points to Remember
+                    </h4>
+                    <ul className="space-y-2">
+                      {selectedLaw.keyPoints.map((point, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <ArrowRight className="w-4 h-4 text-pride-pink mt-0.5 flex-shrink-0" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* What It Means For You */}
+                  <div className="p-4 rounded-xl bg-pride-green/5 border border-pride-green/20">
+                    <h4 className="font-display text-lg font-semibold flex items-center gap-2 mb-3">
+                      <Users className="w-5 h-5 text-pride-green" />
+                      What This Means For You
+                    </h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {selectedLaw.whatItMeans}
+                    </p>
+                  </div>
+
+                  {/* Resources */}
+                  {selectedLaw.resources && selectedLaw.resources.length > 0 && (
+                    <div className="space-y-3">
+                      <h4 className="font-display text-lg font-semibold">Official Resources</h4>
+                      <div className="flex flex-wrap gap-3">
+                        {selectedLaw.resources.map((resource, i) => (
+                          <a
+                            key={i}
+                            href={resource.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-pride-purple/10 border border-border hover:border-pride-purple/30 transition-colors text-sm"
+                          >
+                            <ExternalLink className="w-4 h-4 text-pride-purple" />
+                            {resource.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
+          </ScrollArea>
         </DialogContent>
       </Dialog>
     </section>

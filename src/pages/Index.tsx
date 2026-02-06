@@ -6,6 +6,7 @@ import LawsSection from "@/components/LawsSection";
 import AISection from "@/components/AISection";
 import CommunitySection from "@/components/CommunitySection";
 import Footer from "@/components/Footer";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <AISection />
       <CommunitySection />
       <Footer />
+      <ChatBot />
     </div>
   );
 };

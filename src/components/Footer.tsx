@@ -1,9 +1,10 @@
+import { forwardRef } from "react";
 import { Scale, Heart, Mail, Phone, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = forwardRef<HTMLElement>((props, ref) => {
   return (
-    <footer className="py-16 border-t border-border/50 bg-muted/10">
+    <footer ref={ref} className="py-16 border-t border-border/50 bg-muted/10" {...props}>
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -88,6 +89,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;

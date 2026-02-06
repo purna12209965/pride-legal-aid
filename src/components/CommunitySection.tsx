@@ -1,9 +1,10 @@
+import { forwardRef } from "react";
 import { Heart, Users } from "lucide-react";
 import communityImg from "@/assets/community.jpg";
 
-const CommunitySection = () => {
+const CommunitySection = forwardRef<HTMLElement>((props, ref) => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section ref={ref} className="py-24 relative overflow-hidden" {...props}>
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pride-orange/50 to-transparent" />
       
       <div className="container mx-auto px-6">
@@ -52,6 +53,8 @@ const CommunitySection = () => {
       </div>
     </section>
   );
-};
+});
+
+CommunitySection.displayName = "CommunitySection";
 
 export default CommunitySection;

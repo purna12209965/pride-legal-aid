@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        pride: "bg-gradient-to-r from-pride-purple via-pride-pink to-pride-blue text-white hover:opacity-90 hover:shadow-lg hover:shadow-pride-purple/30",
-        hero: "bg-gradient-to-r from-pride-purple to-pride-pink text-white font-semibold hover:opacity-90 hover:shadow-xl hover:shadow-pride-purple/40 hover:-translate-y-0.5",
-        glass: "bg-white/5 backdrop-blur-md border border-white/10 text-foreground hover:bg-white/10 hover:border-white/20",
+        pride: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25",
+        hero: "bg-primary text-primary-foreground font-semibold hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5",
+        glass: "bg-foreground/5 backdrop-blur-md border border-foreground/10 text-foreground hover:bg-foreground/10 hover:border-foreground/20",
       },
       size: {
         default: "h-10 px-4 py-2",

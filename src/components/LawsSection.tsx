@@ -9,6 +9,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
+
 interface LawDetail {
   title: string;
   jurisdiction: string;
@@ -337,7 +338,7 @@ const LawsSection = () => {
 
   return (
     <section id="laws" className="py-24 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pride-blue/50 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
@@ -358,8 +359,8 @@ const LawsSection = () => {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-2 text-sm">
-                  <MapPin className="w-4 h-4 text-pride-blue" />
-                  <span className="text-pride-blue">{law.jurisdiction}</span>
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span className="text-primary">{law.jurisdiction}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="w-4 h-4" />
@@ -367,7 +368,7 @@ const LawsSection = () => {
                 </div>
               </div>
               
-              <span className="text-xs px-2 py-1 rounded-full bg-pride-purple/10 text-pride-purple w-fit mb-3">
+              <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary w-fit mb-3">
                 {law.type}
               </span>
               
@@ -379,13 +380,13 @@ const LawsSection = () => {
                 {law.summary}
               </p>
               
-              <div className="p-3 rounded-lg bg-pride-green/10 border border-pride-green/20 mb-4">
-                <span className="text-xs font-medium text-pride-green">Impact:</span>
+              <div className="p-3 rounded-lg bg-accent/10 border border-accent/20 mb-4">
+                <span className="text-xs font-medium text-accent">Impact:</span>
                 <p className="text-sm text-muted-foreground mt-1">{law.impact}</p>
               </div>
               
               <Button 
-                variant="pride" 
+                variant="default" 
                 size="sm" 
                 className="w-fit"
                 onClick={() => setSelectedLaw(law)}
@@ -398,7 +399,6 @@ const LawsSection = () => {
         </div>
       </div>
 
-      {/* Detailed Law Modal */}
       <Dialog open={!!selectedLaw} onOpenChange={(open) => !open && setSelectedLaw(null)}>
         <DialogContent className="max-w-4xl max-h-[90vh] bg-card border-border p-0">
           <ScrollArea className="max-h-[85vh] p-6">
@@ -406,10 +406,10 @@ const LawsSection = () => {
               <>
                 <DialogHeader className="mb-4">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-xs px-2 py-1 rounded-full bg-pride-purple/10 text-pride-purple">
+                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
                       {selectedLaw.type}
                     </span>
-                    <span className="text-xs px-2 py-1 rounded-full bg-pride-blue/10 text-pride-blue flex items-center gap-1">
+                    <span className="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent flex items-center gap-1">
                       <MapPin className="w-3 h-3" />
                       {selectedLaw.jurisdiction}
                     </span>
@@ -427,10 +427,9 @@ const LawsSection = () => {
                 </DialogHeader>
 
                 <div className="space-y-6 mt-4">
-                  {/* Full Explanation */}
                   <div className="space-y-3">
                     <h4 className="font-display text-lg font-semibold flex items-center gap-2">
-                      <Scale className="w-5 h-5 text-pride-purple" />
+                      <Scale className="w-5 h-5 text-primary" />
                       Full Explanation
                     </h4>
                     <div className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">
@@ -438,26 +437,24 @@ const LawsSection = () => {
                     </div>
                   </div>
 
-                  {/* Key Points */}
-                  <div className="p-4 rounded-xl bg-pride-purple/5 border border-pride-purple/20">
+                  <div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
                     <h4 className="font-display text-lg font-semibold flex items-center gap-2 mb-3">
-                      <BookOpen className="w-5 h-5 text-pride-purple" />
+                      <BookOpen className="w-5 h-5 text-primary" />
                       Key Points to Remember
                     </h4>
                     <ul className="space-y-2">
                       {selectedLaw.keyPoints.map((point, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <ArrowRight className="w-4 h-4 text-pride-pink mt-0.5 flex-shrink-0" />
+                          <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                           {point}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* What It Means For You */}
-                  <div className="p-4 rounded-xl bg-pride-green/5 border border-pride-green/20">
+                  <div className="p-4 rounded-xl bg-accent/5 border border-accent/20">
                     <h4 className="font-display text-lg font-semibold flex items-center gap-2 mb-3">
-                      <Users className="w-5 h-5 text-pride-green" />
+                      <Users className="w-5 h-5 text-accent" />
                       What This Means For You
                     </h4>
                     <p className="text-muted-foreground text-sm leading-relaxed">
@@ -465,7 +462,6 @@ const LawsSection = () => {
                     </p>
                   </div>
 
-                  {/* Resources */}
                   {selectedLaw.resources && selectedLaw.resources.length > 0 && (
                     <div className="space-y-3">
                       <h4 className="font-display text-lg font-semibold">Official Resources</h4>
@@ -476,9 +472,9 @@ const LawsSection = () => {
                             href={resource.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-pride-purple/10 border border-border hover:border-pride-purple/30 transition-colors text-sm"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-primary/10 border border-border hover:border-primary/30 transition-colors text-sm"
                           >
-                            <ExternalLink className="w-4 h-4 text-pride-purple" />
+                            <ExternalLink className="w-4 h-4 text-primary" />
                             {resource.name}
                           </a>
                         ))}
@@ -496,3 +492,4 @@ const LawsSection = () => {
 };
 
 export default LawsSection;
+

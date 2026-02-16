@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Scale, Bot, Heart, Globe } from "lucide-react";
+import { Scale, Globe } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -7,10 +7,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <Scale className="w-8 h-8 text-pride-purple" />
-              <Heart className="w-3 h-3 text-pride-pink absolute -bottom-1 -right-1" />
-            </div>
+            <Scale className="w-7 h-7 text-primary" />
             <span className="font-display text-xl font-bold gradient-text">
               PrideJustice AI
             </span>
@@ -31,12 +28,9 @@ const Navbar = () => {
             </a>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 border border-border/50">
-              <Globe className="w-4 h-4 text-pride-blue" />
-              <span className="text-xs text-muted-foreground">Global</span>
-            </div>
-            <Bot className="w-5 h-5 text-pride-purple" />
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 border border-border/50">
+            <Globe className="w-4 h-4 text-primary" />
+            <span className="text-xs text-muted-foreground">Global</span>
           </div>
         </div>
       </div>

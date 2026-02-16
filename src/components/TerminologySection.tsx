@@ -57,7 +57,7 @@ const TerminologySection = () => {
 
   return (
     <section id="terms" className="py-24 bg-muted/20 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pride-pink/50 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
@@ -92,7 +92,7 @@ const TerminologySection = () => {
                 </div>
                 <div className="ml-4 flex-shrink-0">
                   {expandedIndex === index ? (
-                    <ChevronUp className="w-5 h-5 text-pride-purple" />
+                    <ChevronUp className="w-5 h-5 text-primary" />
                   ) : (
                     <ChevronDown className="w-5 h-5 text-muted-foreground" />
                   )}
@@ -108,10 +108,10 @@ const TerminologySection = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     {item.definition}
                   </p>
-                  <div className="flex items-start gap-3 p-4 rounded-lg bg-pride-purple/10 border border-pride-purple/20">
-                    <Info className="w-5 h-5 text-pride-purple mt-0.5 flex-shrink-0" />
+                  <div className="flex items-start gap-3 p-4 rounded-lg bg-primary/10 border border-primary/20">
+                    <Info className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
-                      <span className="text-sm font-medium text-pride-purple">Legal Context:</span>
+                      <span className="text-sm font-medium text-primary">Legal Context:</span>
                       <p className="text-sm text-muted-foreground mt-1">
                         {item.legal}
                       </p>

@@ -1,5 +1,4 @@
-import { Bot, MessageCircle, Shield, Globe, Sparkles, Brain } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { MessageCircle, Shield, Globe, Sparkles, Brain } from "lucide-react";
 import aiAssistant from "@/assets/ai-assistant.jpg";
 
 const features = [
@@ -28,19 +27,17 @@ const features = [
 const AISection = () => {
   return (
     <section id="ai" className="py-24 bg-muted/20 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pride-yellow/50 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
-      {/* Glow effects */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-pride-purple/10 rounded-full blur-3xl -translate-y-1/2" />
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-pride-pink/10 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-y-1/2" />
       
       <div className="container mx-auto px-6 relative">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pride-purple/10 border border-pride-purple/20 mb-6">
-              <Sparkles className="w-4 h-4 text-pride-purple" />
-              <span className="text-sm text-pride-purple">Agentic AI Framework</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm text-primary">Agentic AI Framework</span>
             </div>
             
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
@@ -56,11 +53,11 @@ const AISection = () => {
               jurisdiction-aware guidance while actively working to eliminate bias.
             </p>
             
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid sm:grid-cols-2 gap-4">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-card/50 border border-border/50">
-                  <div className="w-10 h-10 rounded-lg bg-pride-purple/10 flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5 text-pride-purple" />
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-medium text-foreground text-sm mb-1">{feature.title}</h4>
@@ -69,14 +66,8 @@ const AISection = () => {
                 </div>
               ))}
             </div>
-            
-            <Button variant="hero" size="lg">
-              <Bot className="w-5 h-5" />
-              Start Conversation
-            </Button>
           </div>
           
-          {/* AI Image */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden glow-effect">
               <img 
@@ -87,11 +78,10 @@ const AISection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             </div>
             
-            {/* Floating Cards */}
             <div className="absolute -bottom-6 -left-6 p-4 rounded-xl bg-card/90 backdrop-blur-md border border-border/50 shadow-lg animate-float">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-pride-green/20 flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-pride-green" />
+                <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <div className="text-sm font-medium text-foreground">Bias-Free</div>
@@ -102,8 +92,8 @@ const AISection = () => {
             
             <div className="absolute -top-4 -right-4 p-4 rounded-xl bg-card/90 backdrop-blur-md border border-border/50 shadow-lg animate-float delay-500">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-pride-blue/20 flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-pride-blue" />
+                <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center">
+                  <Globe className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <div className="text-sm font-medium text-foreground">195+ Countries</div>

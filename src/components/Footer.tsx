@@ -7,13 +7,9 @@ const Footer = forwardRef<HTMLElement>((props, ref) => {
     <footer ref={ref} className="py-16 border-t border-border/50 bg-muted/10" {...props}>
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="relative">
-                <Scale className="w-8 h-8 text-pride-purple" />
-                <Heart className="w-3 h-3 text-pride-pink absolute -bottom-1 -right-1" />
-              </div>
+              <Scale className="w-7 h-7 text-primary" />
               <span className="font-display text-xl font-bold gradient-text">
                 PrideJustice AI
               </span>
@@ -23,7 +19,6 @@ const Footer = forwardRef<HTMLElement>((props, ref) => {
             </p>
           </div>
           
-          {/* Quick Links */}
           <div>
             <h4 className="font-display font-semibold text-foreground mb-4">Resources</h4>
             <ul className="space-y-3">
@@ -34,7 +29,6 @@ const Footer = forwardRef<HTMLElement>((props, ref) => {
             </ul>
           </div>
           
-          {/* Legal */}
           <div>
             <h4 className="font-display font-semibold text-foreground mb-4">Legal</h4>
             <ul className="space-y-3">
@@ -45,20 +39,19 @@ const Footer = forwardRef<HTMLElement>((props, ref) => {
             </ul>
           </div>
           
-          {/* Contact - Marthala Purna */}
           <div>
             <h4 className="font-display font-semibold text-foreground mb-4">Connect</h4>
             <div className="space-y-3 mb-4">
               <p className="text-sm font-medium text-foreground">Marthala Purna</p>
-              <a href="mailto:purnamarthala09@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-pride-purple transition-colors">
+              <a href="mailto:purnamarthala09@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
                 purnamarthala09@gmail.com
               </a>
-              <a href="tel:+916302728567" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-pride-purple transition-colors">
+              <a href="tel:+916302728567" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
                 +91 6302728567
               </a>
-              <a href="https://instagram.com/hey.purnaaaa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-pride-pink transition-colors">
+              <a href="https://instagram.com/hey.purnaaaa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="w-4 h-4" />
                 @hey.purnaaaa
               </a>
@@ -66,24 +59,12 @@ const Footer = forwardRef<HTMLElement>((props, ref) => {
           </div>
         </div>
         
-        {/* Bottom */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © 2024 PrideJustice AI. All rights reserved.
           </p>
-          
-          {/* Pride Bar */}
-          <div className="flex h-1 w-32 rounded-full overflow-hidden">
-            <div className="flex-1 bg-pride-red" />
-            <div className="flex-1 bg-pride-orange" />
-            <div className="flex-1 bg-pride-yellow" />
-            <div className="flex-1 bg-pride-green" />
-            <div className="flex-1 bg-pride-blue" />
-            <div className="flex-1 bg-pride-purple" />
-          </div>
-          
           <p className="text-sm text-muted-foreground">
-            Made with <Heart className="w-4 h-4 inline text-pride-pink" /> for equality
+            Made with <Heart className="w-4 h-4 inline text-primary" /> for equality
           </p>
         </div>
       </div>

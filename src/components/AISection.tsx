@@ -1,4 +1,5 @@
-import { MessageCircle, Shield, Globe, Sparkles, Brain } from "lucide-react";
+import { MessageCircle, Shield, Globe, Sparkles, Brain, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import aiAssistant from "@/assets/ai-assistant.jpg";
 
 const features = [
@@ -52,6 +53,14 @@ const AISection = () => {
               Our AI understands the nuances of identity-related legal issues and provides 
               jurisdiction-aware guidance while actively working to eliminate bias.
             </p>
+
+            <Link
+              to="/chat"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/25 mb-8"
+            >
+              Start a Conversation
+              <ArrowRight className="w-4 h-4" />
+            </Link>
             
             <div className="grid sm:grid-cols-2 gap-4">
               {features.map((feature, index) => (

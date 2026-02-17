@@ -26,6 +26,9 @@ const Navbar = () => {
             <a href="#ai" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
               AI Assistant
             </a>
+            <Link to="/chat" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+              Ask AI
+            </Link>
           </div>
 
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 border border-border/50">

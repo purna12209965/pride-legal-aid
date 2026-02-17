@@ -4,6 +4,7 @@ import RightsSection from "@/components/RightsSection";
 import TerminologySection from "@/components/TerminologySection";
 import LawsSection from "@/components/LawsSection";
 import AISection from "@/components/AISection";
+import InlineChatSection from "@/components/InlineChatSection";
 import CommunitySection from "@/components/CommunitySection";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ const Index = () => {
       <TerminologySection />
       <LawsSection />
       <AISection />
+      <InlineChatSection />
       <CommunitySection />
       <Footer />
     </div>

@@ -26,6 +26,9 @@ const Navbar = () => {
             <a href="#ai" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
               AI Assistant
             </a>
+            <a href="#suggestions" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+              Feedback
+            </a>
             <Link to="/chat" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors">
               Ask AI
             </Link>

@@ -1,4 +1,5 @@
 import { Phone, MapPin, ExternalLink, Heart, Shield, Star } from "lucide-react";
+import vishnuPhoto from "@/assets/vishnu-teja.jpeg";
 
 const CounselorSection = () => {
   return (
@@ -46,16 +47,20 @@ const CounselorSection = () => {
               {/* Avatar */}
               <div className="flex-shrink-0">
                 <div
-                  className="w-28 h-28 rounded-2xl flex items-center justify-center text-5xl relative"
+                  className="w-28 h-28 rounded-2xl overflow-hidden relative"
                   style={{
-                    background: "linear-gradient(135deg, hsl(280 65% 60%/0.2), hsl(330 60% 55%/0.2))",
                     border: "2px solid hsl(280 65% 60%/0.4)",
+                    boxShadow: "0 0 20px hsl(280 65% 60%/0.2)",
                   }}
                 >
-                  🏳️‍🌈
+                  <img
+                    src={vishnuPhoto}
+                    alt="Boyapati Vishnu Teja"
+                    className="w-full h-full object-cover object-top"
+                  />
                   {/* Verified badge */}
                   <div
-                    className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-sm"
+                    className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white"
                     style={{ background: "linear-gradient(135deg, hsl(280 65% 60%), hsl(330 60% 55%))" }}
                     title="Verified Activist"
                   >

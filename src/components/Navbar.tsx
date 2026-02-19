@@ -26,6 +26,9 @@ const Navbar = () => {
             <a href="#ai" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
               AI Assistant
             </a>
+            <a href="#counseling" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+              Counseling
+            </a>
             <a href="#suggestions" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
               Feedback
             </a>

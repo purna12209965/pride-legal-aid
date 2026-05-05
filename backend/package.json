@@ -1,0 +1,17 @@
+{
+  "name": "pridejustice-backend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "supabase start",
+    "stop": "supabase stop",
+    "status": "supabase status",
+    "functions:serve": "supabase functions serve",
+    "functions:deploy": "supabase functions deploy"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.95.2"
+  },
+  "devDependencies": {}
+}

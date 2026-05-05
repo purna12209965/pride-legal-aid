@@ -51,6 +51,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        pride: {
+          red: "hsl(var(--pride-red))",
+          orange: "hsl(var(--pride-orange))",
+          yellow: "hsl(var(--pride-yellow))",
+          green: "hsl(var(--pride-green))",
+          blue: "hsl(var(--pride-blue))",
+          purple: "hsl(var(--pride-purple))",
+          pink: "hsl(var(--pride-pink))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

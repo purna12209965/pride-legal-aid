@@ -5,11 +5,14 @@ import communityImg from "@/assets/community.jpg";
 const CommunitySection = forwardRef<HTMLElement>((props, ref) => {
   return (
     <section ref={ref} className="py-24 relative overflow-hidden" {...props}>
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pride-orange/50 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+      {/* Floating stickers */}
+      <div className="absolute top-8 left-8 text-4xl opacity-20 select-none animate-float">💜</div>
+      <div className="absolute bottom-8 right-12 text-4xl opacity-20 select-none animate-float" style={{animationDelay:"1.5s"}}>🌈</div>
       
       <div className="container mx-auto px-6">
-        <div className="relative rounded-3xl overflow-hidden">
-          {/* Background Image */}
+        <div className="relative rounded-3xl overflow-hidden" style={{border:"1px solid hsl(280 65% 60%/0.2)",boxShadow:"0 0 60px hsl(280 65% 60%/0.08)"}}>
           <img 
             src={communityImg} 
             alt="LGBTQ+ Community" 
@@ -19,12 +22,12 @@ const CommunitySection = forwardRef<HTMLElement>((props, ref) => {
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
           
-          {/* Content */}
           <div className="absolute inset-0 flex items-center">
             <div className="p-6 md:p-12 max-w-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Heart className="w-6 h-6 text-pride-pink" />
-                <Users className="w-6 h-6 text-pride-purple" />
+                <span className="text-2xl">❤️</span>
+                <span className="text-2xl">🤝</span>
+                <span className="text-2xl">🏳️‍🌈</span>
               </div>
               
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">

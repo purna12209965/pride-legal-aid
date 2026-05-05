@@ -1,14 +1,8 @@
 import { useState } from "react";
-import { ExternalLink, MapPin, Calendar, BookOpen, Scale, Users, ArrowRight } from "lucide-react";
+import { ExternalLink, MapPin, Calendar, BookOpen, Scale, Users, ArrowRight, CheckCircle2, Lightbulb, Gavel, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
+
 interface LawDetail {
   title: string;
   jurisdiction: string;
@@ -358,8 +352,8 @@ const LawsSection = () => {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-2 text-sm">
-                  <MapPin className="w-4 h-4 text-pride-blue" />
-                  <span className="text-pride-blue">{law.jurisdiction}</span>
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span className="text-primary">{law.jurisdiction}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="w-4 h-4" />
@@ -420,101 +414,142 @@ const LawsSection = () => {
         </div>
       </div>
 
-      {/* Detailed Law Modal */}
-      <Dialog open={!!selectedLaw} onOpenChange={(open) => !open && setSelectedLaw(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] bg-card border-border p-0">
-          <ScrollArea className="max-h-[85vh] p-6">
-            {selectedLaw && (
-              <>
-                <DialogHeader className="mb-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-xs px-2 py-1 rounded-full bg-pride-purple/10 text-pride-purple">
+      {/* Full detail side panel overlay */}
+      {selectedLaw && (
+        <div className="fixed inset-0 z-50 flex justify-end" onClick={() => setSelectedLaw(null)}>
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
+
+          {/* Panel */}
+          <div
+            className="relative w-full max-w-2xl h-full bg-card border-l border-border shadow-2xl flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Rainbow top stripe */}
+            <div className="h-1 flex-shrink-0" style={{ background: "linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787)" }} />
+
+            {/* Header */}
+            <div className="flex-shrink-0 p-6 border-b border-border/50" style={{ background: "linear-gradient(135deg,hsl(280 65% 8%),hsl(330 50% 8%))" }}>
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <span className="text-xs px-2.5 py-1 rounded-full font-medium" style={{ background: "hsl(280 65% 60%/0.15)", color: "hsl(280 65% 70%)", border: "1px solid hsl(280 65% 60%/0.25)" }}>
                       {selectedLaw.type}
                     </span>
-                    <span className="text-xs px-2 py-1 rounded-full bg-pride-blue/10 text-pride-blue flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />
-                      {selectedLaw.jurisdiction}
+                    <span className="text-xs px-2.5 py-1 rounded-full flex items-center gap-1" style={{ background: "hsl(330 60% 55%/0.15)", color: "hsl(330 60% 65%)", border: "1px solid hsl(330 60% 55%/0.25)" }}>
+                      <MapPin className="w-3 h-3" />{selectedLaw.jurisdiction}
                     </span>
-                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      {selectedLaw.year}
+                    <span className="text-xs px-2.5 py-1 rounded-full flex items-center gap-1 bg-muted text-muted-foreground">
+                      <Calendar className="w-3 h-3" />{selectedLaw.year}
                     </span>
                   </div>
-                  <DialogTitle className="font-display text-2xl md:text-3xl gradient-text">
+                  <h2 className="font-display text-xl md:text-2xl font-bold gradient-text leading-tight">
                     {selectedLaw.title}
-                  </DialogTitle>
-                  <DialogDescription className="text-muted-foreground text-sm">
-                    Detailed legal information about this law and what it means for LGBTQ+ rights.
-                  </DialogDescription>
-                </DialogHeader>
-
-                <div className="space-y-6 mt-4">
-                  {/* Full Explanation */}
-                  <div className="space-y-3">
-                    <h4 className="font-display text-lg font-semibold flex items-center gap-2">
-                      <Scale className="w-5 h-5 text-pride-purple" />
-                      Full Explanation
-                    </h4>
-                    <div className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">
-                      {selectedLaw.fullExplanation}
-                    </div>
-                  </div>
-
-                  {/* Key Points */}
-                  <div className="p-4 rounded-xl bg-pride-purple/5 border border-pride-purple/20">
-                    <h4 className="font-display text-lg font-semibold flex items-center gap-2 mb-3">
-                      <BookOpen className="w-5 h-5 text-pride-purple" />
-                      Key Points to Remember
-                    </h4>
-                    <ul className="space-y-2">
-                      {selectedLaw.keyPoints.map((point, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <ArrowRight className="w-4 h-4 text-pride-pink mt-0.5 flex-shrink-0" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* What It Means For You */}
-                  <div className="p-4 rounded-xl bg-pride-green/5 border border-pride-green/20">
-                    <h4 className="font-display text-lg font-semibold flex items-center gap-2 mb-3">
-                      <Users className="w-5 h-5 text-pride-green" />
-                      What This Means For You
-                    </h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {selectedLaw.whatItMeans}
-                    </p>
-                  </div>
-
-                  {/* Resources */}
-                  {selectedLaw.resources && selectedLaw.resources.length > 0 && (
-                    <div className="space-y-3">
-                      <h4 className="font-display text-lg font-semibold">Official Resources</h4>
-                      <div className="flex flex-wrap gap-3">
-                        {selectedLaw.resources.map((resource, i) => (
-                          <a
-                            key={i}
-                            href={resource.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-pride-purple/10 border border-border hover:border-pride-purple/30 transition-colors text-sm"
-                          >
-                            <ExternalLink className="w-4 h-4 text-pride-purple" />
-                            {resource.name}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  </h2>
                 </div>
-              </>
-            )}
-          </ScrollArea>
-        </DialogContent>
-      </Dialog>
+                <button
+                  onClick={() => setSelectedLaw(null)}
+                  className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-muted hover:bg-muted/80 transition-colors"
+                >
+                  <X className="w-4 h-4 text-muted-foreground" />
+                </button>
+              </div>
+            </div>
+
+            {/* Scrollable content */}
+            <ScrollArea className="flex-1">
+              <div className="p-6 space-y-6">
+
+                {/* 🔍 Quick Summary — plain English */}
+                <div className="rounded-2xl p-5" style={{ background: "linear-gradient(135deg,hsl(280 65% 60%/0.08),hsl(330 60% 55%/0.08))", border: "1px solid hsl(280 65% 60%/0.2)" }}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-lg">🔍</span>
+                    <h3 className="font-display font-bold text-foreground text-sm uppercase tracking-wide">Plain English Summary</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{selectedLaw.summary}</p>
+                </div>
+
+                {/* ⚖️ Full Explanation */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(280 65% 60%/0.15)" }}>
+                      <Gavel className="w-4 h-4" style={{ color: "hsl(280 65% 65%)" }} />
+                    </div>
+                    <h3 className="font-display font-bold text-foreground">The Full Story</h3>
+                  </div>
+                  <div className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line rounded-xl p-4" style={{ background: "hsl(0 0% 100%/0.02)", border: "1px solid hsl(0 0% 100%/0.06)" }}>
+                    {selectedLaw.fullExplanation}
+                  </div>
+                </div>
+
+                {/* ✅ Key Points */}
+                <div className="rounded-2xl p-5 space-y-3" style={{ background: "hsl(142 70% 45%/0.06)", border: "1px solid hsl(142 70% 45%/0.2)" }}>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-lg">✅</span>
+                    <h3 className="font-display font-bold text-foreground">Key Points to Remember</h3>
+                  </div>
+                  <ul className="space-y-2.5">
+                    {selectedLaw.keyPoints.map((point, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "hsl(142 70% 50%)" }} />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* 💡 What It Means For You */}
+                <div className="rounded-2xl p-5" style={{ background: "hsl(45 90% 55%/0.06)", border: "1px solid hsl(45 90% 55%/0.25)" }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-lg">💡</span>
+                    <h3 className="font-display font-bold text-foreground">What This Means For YOU</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{selectedLaw.whatItMeans}</p>
+                </div>
+
+                {/* 🌍 Impact */}
+                <div className="rounded-2xl p-5" style={{ background: "hsl(210 80% 55%/0.06)", border: "1px solid hsl(210 80% 55%/0.2)" }}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-lg">🌍</span>
+                    <h3 className="font-display font-bold text-foreground">Real-World Impact</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{selectedLaw.impact}</p>
+                </div>
+
+                {/* 📚 Official Resources */}
+                {selectedLaw.resources && selectedLaw.resources.length > 0 && (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">📚</span>
+                      <h3 className="font-display font-bold text-foreground">Official Resources</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      {selectedLaw.resources.map((resource, i) => (
+                        <a
+                          key={i}
+                          href={resource.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm transition-all hover:scale-105"
+                          style={{ background: "hsl(280 65% 60%/0.1)", border: "1px solid hsl(280 65% 60%/0.25)", color: "hsl(280 65% 70%)" }}
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          {resource.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="pb-4" />
+              </div>
+            </ScrollArea>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
 
 export default LawsSection;
+

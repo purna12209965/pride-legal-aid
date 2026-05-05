@@ -65,12 +65,8 @@ const AISection = () => {
                   <div className="w-10 h-10 rounded-lg bg-pride-purple/10 flex items-center justify-center flex-shrink-0">
                     <feature.icon className="w-5 h-5 text-pride-purple" />
                   </div>
-                  <div>
-                    <h4 className="font-medium text-foreground text-sm mb-1">{feature.title}</h4>
-                    <p className="text-xs text-muted-foreground">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <Button variant="hero" size="lg" onClick={() => navigate('/chat')}>
@@ -88,14 +84,14 @@ const AISection = () => {
                 className="w-full h-auto rounded-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              {/* Colorful overlay tint */}
+              <div className="absolute inset-0 rounded-2xl" style={{background:"linear-gradient(135deg,hsl(280 65% 60%/0.1),hsl(330 60% 55%/0.08))"}} />
             </div>
 
             {/* Floating Cards */}
             <div className="absolute -bottom-6 -left-6 p-4 rounded-xl bg-card/90 backdrop-blur-md border border-border/50 shadow-lg animate-float">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-pride-green/20 flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-pride-green" />
-                </div>
+                <div className="text-2xl">🛡️</div>
                 <div>
                   <div className="text-sm font-medium text-foreground">Bias-Free</div>
                   <div className="text-xs text-muted-foreground">Responses verified</div>
@@ -105,13 +101,18 @@ const AISection = () => {
 
             <div className="absolute -top-4 -right-4 p-4 rounded-xl bg-card/90 backdrop-blur-md border border-border/50 shadow-lg animate-float delay-500">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-pride-blue/20 flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-pride-blue" />
-                </div>
+                <div className="text-2xl">🌍</div>
                 <div>
                   <div className="text-sm font-medium text-foreground">195+ Countries</div>
                   <div className="text-xs text-muted-foreground">Legal coverage</div>
                 </div>
+              </div>
+            </div>
+
+            <div className="absolute top-1/2 -right-6 p-3 rounded-xl backdrop-blur-md border shadow-lg animate-float" style={{background:"hsl(270 15% 10%/0.95)",borderColor:"hsl(200 70% 50%/0.3)",animationDelay:"1s"}}>
+              <div className="text-center">
+                <div className="text-xl">⚡</div>
+                <div className="text-xs text-muted-foreground mt-0.5">24/7</div>
               </div>
             </div>
           </div>

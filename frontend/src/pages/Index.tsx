@@ -11,7 +11,6 @@ import FAQSection from "@/components/FAQSection";
 import CommunitySection from "@/components/CommunitySection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
   return (
@@ -29,7 +28,6 @@ const Index = () => {
       <CommunitySection />
       <CTASection />
       <Footer />
-      <ChatBot />
     </div>
   );
 };
